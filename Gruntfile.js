@@ -10,34 +10,22 @@ module.exports = function(grunt){
         }
       }
     },
-    csslint:{
-      all:['css/reset.css','css/styles.css']
-    },
-    cssmin:{
+    less:{
       dist:{
         files:{
-          'css/styles.min.css':['css/reset.css','css/styles.css']
+          'css/style.min.css':['less/style.less','less/mixins.less']
         }
-      }
-    },
-    autoprefixer:{
-      all:{
-        src: 'css/styles.min.css'
       }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   grunt.registerTask('default',[
     'jshint',
     'concat',
-    'csslint',
-    'cssmin',
-    'autoprefixer'
+    'less'
   ]);
 };
