@@ -15,6 +15,10 @@ module.exports = function(grunt){
         files:{
           'css/style.min.css':['less/style.less','less/mixins.less']
         }
+      },
+
+      options:{
+        compress:true
       }
     }
   });
