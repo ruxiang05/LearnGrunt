@@ -20,16 +20,43 @@ module.exports = function(grunt){
       options:{
         compress:true
       }
+    },
+    imagemin:{
+      dist:{
+        files:[{
+          expand:true,
+          cwd:'images/src',
+          src:['**/*.{jpeg,gif,png}'],
+          dest:'images/dist'
+        }]
+      }
+    },
+    watch:{
+      less:{
+        files:['less/*.less'],
+        tasks:['less'],
+        options:{
+          spawn:false,
+          livereload:true
+        }
+      },
+      js:{
+        files:['js/*.js'],
+        tasks:['jshint']
+      }
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   grunt.registerTask('default',[
     'jshint',
     'concat',
-    'less'
+    'less',
+    'imagemin'
   ]);
 };
