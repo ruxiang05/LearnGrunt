@@ -1,5 +1,11 @@
 module.exports = function(grunt){
   grunt.initConfig({
+    jshint:{
+      all:['js/scripts.js']
+    },
+    csslint:{
+      all:['css/reset.css','css/styles.css']
+    },
     cssmin:{
       dist:{
         files:{
@@ -10,8 +16,12 @@ module.exports = function(grunt){
   });
 
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('default',[
+    'jshint',
+    'csslint',
     'cssmin'
   ]);
 };
