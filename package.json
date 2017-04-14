@@ -1,0 +1,9 @@
+{
+  "name": "learn-grunt",
+  "version": "1.0.0",
+  "description": "LearnGrunt",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.0.0"
+  }
+}
